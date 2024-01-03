@@ -1,5 +1,6 @@
 package com.demo.pokemon.model;
 
+import com.demo.pokemon.enums.PokemonType;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -24,6 +25,13 @@ public class PokemonModel {
     @Column(nullable = false)
     private Long attack;
 
+    @Enumerated(EnumType.STRING)
+    @Column(name="tipo",nullable = false)
+    private PokemonType pokemonType;
+
     @Column(nullable = false)
     private char status;
+
+    @OneToOne
+    private TrainerModel entrenadorModel;
 }

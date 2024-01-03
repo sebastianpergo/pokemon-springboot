@@ -5,6 +5,9 @@ import com.demo.pokemon.repository.PokemonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Service
 public class PokemonService {
 
@@ -16,16 +19,19 @@ public class PokemonService {
     public void createPokemon(PokemonModel pokemonModel) {
         pokemonRepository.save(pokemonModel);
     }
-    public void getPokemon() {
-        System.out.println("Get Pokemon");
+    public List<PokemonModel> getPokemon() {
+        List<PokemonModel> pokemonList = new ArrayList<PokemonModel>();
+        pokemonList.addAll(pokemonRepository.findAll());
+        return pokemonList;
     }
 
-    public void deletePokemon() {
+    public void deletePokemon(Long id) {
+        pokemonRepository.deleteById(id);
         System.out.println("Delete Pokemon");
     }
 
-    public void updatePokemon() {
-        System.out.println("Update Pokemon");
+    public void updatePokemon(Long id) {
+
     }
 
 
