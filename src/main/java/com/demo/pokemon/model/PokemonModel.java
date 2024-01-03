@@ -33,5 +33,5 @@ public class PokemonModel {
     private char status;
 
     @OneToOne
-    private TrainerModel entrenadorModel;
+    private TrainerModel trainerModel;
 }
