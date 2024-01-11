@@ -32,8 +32,6 @@ public class PokemonController {
         return "Pokemon deleted";
     }
 
-
-
     @GetMapping("/pokemon/get")
     private List<PokemonModel> getPokemon() {
         return pokemonService.getPokemon();

@@ -3,6 +3,11 @@ package com.demo.pokemon.model;
 import com.demo.pokemon.enums.PokemonType;
 import jakarta.persistence.*;
 import lombok.*;
+import org.antlr.v4.runtime.misc.NotNull;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
+import java.time.LocalDateTime;
 
 @Entity
 @NoArgsConstructor
@@ -32,6 +37,15 @@ public class PokemonModel {
     @Column(nullable = false)
     private char status;
 
-    @OneToOne
-    private TrainerModel trainerModel;
+    @CreationTimestamp
+    @Column(name = "created_at", nullable = false)
+    private LocalDateTime createdAt;
+
+    @UpdateTimestamp
+    @Column(name = "updated_at", nullable = false)
+    private LocalDateTime updatedAt;
+
+//    @ManyToOne(cascade = CascadeType.ALL)
+//    @JoinColumn(name ="id_entrenador")
+//    private TrainerModel trainerModel;
 }
